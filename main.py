@@ -22,7 +22,7 @@ def gedcom_reader_func(text_file):
     print("<-- |" + derp + "|" + lerp + "|" + y)
     print("-->", line)
 ##User Story 1
-##Estimate Manhours?
+##Estimate Manhours- 2
 ##This is user story to add functionality to print all males in a genealogy (Sprint 1)
 def males_in_family(text_file):
   for line in text_file:
@@ -32,12 +32,26 @@ def males_in_family(text_file):
       if line[2] == "M":
         print(name)
 ##User Story 2
+##Estimate Manhours- 2
 ##This user story prints all the females of a family.
-  if line[1] == "NAME":
-    name = line[2]
-  while line[2] != "M" or "F":
-    if line[2] == "F":
-      print(name)
+def females_in_family(text_file):
+  for line in text_file:
+    if line[1] == "NAME":
+      name = line[2]
+    while line[2] != "M" or "F":
+      if line[2] == "F":
+        print(name)
+        
+##User Story 3
+##Estimate Manhours- 2
+##This user story returns total deaths in the family
+def total_counts(text_file):
+  deathCount = 0
+  for line in text_file:
+    if line[1] == "DEAT":
+      deathCount += 1
+  print(deathCount)
+      
 
 ##Will print all the children of a family tree, may need to be separate function.
     if line[1] == "CHIL":
@@ -49,9 +63,11 @@ def males_in_family(text_file):
 
 ##User Story 9
 ##User Story to Reference Individuals by Family
+##To be Implemented in Sprint 2
 
 ##User Story 10
 ##Who is the longest living relative of a family?
+##To be Implemented in Sprint 2
 
 if __name__ == "__main__":
   gedcom_reader_func(text_file)
