@@ -1,4 +1,7 @@
 import python-gedcom
+import sys
+import os
+import pdfkit
 key_words = ['INDI','NAME','SEX','BIRT','DEAT','FAMC','FAMS','FAM',
 'MARR','HUSB','WIFE','CHIL','DIV','DATE','HEAD','TRLR','NOTE']
 
@@ -69,3 +72,32 @@ def deadPercentage():
   b = totalPeople(text_file)
 
   percentDead(a,b)
+
+  def toPDF():
+  
+
+    text_file = open('export-BloodTree.ged', 'r')
+    file = input("What do you want to name the file?")
+    txt = file + ".txt"
+    pdf = file + ".pdf"
+
+    stdoutOrigin=sys.stdout 
+    sys.stdout = open(txt, "w")
+     PrintWhole() 
+    sys.stdout.close()
+
+    # from txt to html
+    # install wkthtml
+
+    # Install wkthtmltopdf.exe and set it as primary environment variable
+    #in order to use this
+
+    with open(txt) as file:
+      with open ("text.html", "w") as output:
+          file = file.read()
+          file = file.replace("\n", "<br>")
+          output.write(file)
+
+    pdfkit.from_file("text.html", pdf)
+
+    os.startfile(pdf)
