@@ -1,6 +1,7 @@
 import unittest
 from homework4 import Gedcom
 
+#tests
 class BuggyGedcom(unittest.TestCase):
     def test_searchByYear(self):
         "test if obeject stored properly in __init__()"

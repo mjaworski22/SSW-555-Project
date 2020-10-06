@@ -3,6 +3,7 @@ class Gedcom():
         self.filename = filename + ".txt"
         self.startYear = startYear
         self.endYear = endYear
+        
     def print(self):
         f = open(self.filename,"r")
         for lines in f:
