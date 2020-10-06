@@ -1,7 +1,7 @@
 import unittest
 from homework4 import Gedcom
 
-#tests for searching how many people were born in a given time frame
+#tests for searching how many people were born in a given time frame.
 class BuggyGedcom(unittest.TestCase):
     def test_searchByYear(self):
         "test if obeject stored properly in __init__()"

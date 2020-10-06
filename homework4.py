@@ -1,3 +1,4 @@
+
 class Gedcom():
     def __init__(self, filename, startYear,endYear):
         self.filename = filename + ".txt"
@@ -18,7 +19,7 @@ class Gedcom():
             else:
                 print ("<-- {}|{}|N|{}".format(temp[0],temp[1],temp[2]))
         return None
-
+    #first sprint for searching people were born in a given time frame
     def searchByYears(self):
         "The method shows how many people was born between the startyear and endyear"
         f = open(self.filename,'r')
