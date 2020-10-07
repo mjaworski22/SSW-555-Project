@@ -1,0 +1,36 @@
+0 HEAD
+0 NOTE This is a fake family based loosely on The Starks from The Game of Thrones
+1 F01 FAM
+1 I01 INDI
+1 NAME Rickard /Stark/
+1 SEX M
+1 BIRT
+2 DATE 1 JAN 1000
+1 DEAT
+2 DATE 1 JUL 1060
+1 F01 FAM
+1 I02 INDI
+2 NAME Eddard Stark
+1 SEX M
+1 BIRT
+2 DATE 1 JAN 1020
+1 DEAT
+2 DATE 1 JUL 1060
+1 CHIL FAM I01
+2 Catelyn Tully
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1020
+1 DEAT
+2 DATE 1 JUL 1060
+1 CHIL FAM I01
+1 WIFE I02 
+3 Jon Snow
+3 Rob Stark
+3 Richon Stark
+3 Sansa Stark
+3 Bran Stark
+4 Foster Baratheon
+3 Susan Targaryen
+3 Theon Gray Joy
+0 TRLR

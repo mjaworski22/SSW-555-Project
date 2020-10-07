@@ -1,30 +1,25 @@
 """
 Authors: Edward Holcomb and William (Billy) Kingsberry
-Sprint 1
+Sprint 1 and Sprint 2 Implementation
 """
-key_words = ['INDI','NAME','SEX','BIRT','DEAT','FAMC','FAMS','FAM',
-'MARR','HUSB','WIFE','CHIL','DIV','DATE','HEAD','TRLR','NOTE']
-levels = ['1','2','3']
-text_file = open('export-BloodTree.ged', 'r')
 
+text_file2 = open('export-BloodTree.ged', 'r')
+text_file = open('Holcomb-Project02.ged', 'r')
 def gedcom_reader_func(text_file):
-  y = ""
-  lerp = ""
-  derp = ""
   text_file = text_file
-  for line in text_file:
-    level_number = line[:1]
-    line = line.split()
-    for word in key_words:
-      if word in line:
-        derp = word
-        y = "Y"
-
-    for burb in levels:
-      if burb in line:
-        lerp = burb
-    print("<-- |" + derp + "|" + lerp + "|" + y)
-    print("-->", line)
+  for lines in text_file:
+    temp = lines.split(" ", 2)
+    temp[-1] = temp[-1][:-1]
+    print("--> " + lines, end='')
+    if temp[1] in ("NOTE", "NAME", "SEX", "FAMC", "FAMS", "HUSB", "WIFE", "CHIL", "DATE"):
+      print("<-- {}|{}|Y|{}".format(temp[0], temp[1], temp[2]))
+    elif temp[1] in ("BIRT", "DEAT", "MARR", "DIV"):
+      print("<-- {}|{}|Y".format(temp[0], temp[1]))
+    elif temp[2] in ("INDI", "FAM"):
+      print("<-- {}|{}|Y|{}".format(temp[0], temp[2], temp[1]))
+    else:
+      print("<-- {}|{}|N|{}".format(temp[0], temp[1], temp[2]))
+  return None
 ##User Story 1
 ##Estimate Manhours- 2
 ##This is user story to add functionality to print all males in a genealogy (Sprint 1)
@@ -61,9 +56,9 @@ def total_counts(text_file):
 ##Main Function, add functions to execute below
 if __name__ == "__main__":
   gedcom_reader_func(text_file)
-  males_in_family(text_file)
-  females_in_family(text_file)
-  total_counts(text_file)
+  ##males_in_family(text_file)
+  ##females_in_family(text_file)
+  ##total_counts(text_file)
 
 
 ##Total number of deaths in the family
