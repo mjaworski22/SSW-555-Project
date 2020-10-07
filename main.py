@@ -44,7 +44,7 @@ def females_in_family(text_file):
     while line[2] != "M" or "F":
       if line[2] == "F":
         print(name)
-        
+    
 ##User Story 3
 ##Estimate Manhours- 2
 ##This user story returns total deaths in the family
@@ -60,6 +60,7 @@ def total_counts(text_file):
 ##Main Function, add functions to execute below
 if __name__ == "__main__":
   gedcom_reader_func(text_file)
+  males_in_family(text_file)
   females_in_family(text_file)
   total_counts(text_file)
 
