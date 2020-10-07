@@ -1,3 +1,6 @@
+"""
+Authors: Edward Holcomb and William (Billy) Kingsberry
+"""
 key_words = ['INDI','NAME','SEX','BIRT','DEAT','FAMC','FAMS','FAM',
 'MARR','HUSB','WIFE','CHIL','DIV','DATE','HEAD','TRLR','NOTE']
 levels = ['1','2','3']
@@ -46,32 +49,30 @@ def females_in_family(text_file):
 ##Estimate Manhours- 2
 ##This user story returns total deaths in the family
 def total_counts(text_file):
-  deathCount = 0
+  deathcount = 0
   for line in text_file:
     if line[1] == "DEAT":
-      deathCount += 1
-  print(deathCount)
-      
-
+      deathcount += 1
+  print("The total number of deceased family members: " + deathcount)
 ##Will print all the children of a family tree, may need to be separate function.
-    if line[1] == "CHIL":
+  if line[1] == "CHIL":
       name = line
+##Main Function, add functions to execute below
+if __name__ == "__main__":
+  gedcom_reader_func(text_file)
+  females_in_family(text_file)
+  total_counts(text_file)
+
+
 ##Total number of deaths in the family
-
 ##Host database via MySQL or Sqlite
-"""
-
 ##User Story 9
 ##User Story to Reference Individuals by Family
 ##To be Implemented in Sprint 2
-
 ##User Story 10
 ##Who is the longest living relative of a family?
 ##To be Implemented in Sprint 2
 
-if __name__ == "__main__":
-  gedcom_reader_func(text_file)
-  ##males_in_family(text_file)
-    
+
 
 
