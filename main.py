@@ -7,6 +7,7 @@ text_file2 = open('export-BloodTree.ged', 'r')
 text_file = open('Holcomb-Project02.ged', 'r')
 def gedcom_reader_func(text_file):
   text_file = text_file
+  temp = ""
   for lines in text_file:
     temp = lines.split(" ", 2)
     temp[-1] = temp[-1][:-1]
