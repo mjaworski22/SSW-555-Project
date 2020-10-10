@@ -1,18 +1,18 @@
 """
-Authors: Edward Holcomb and William (Billy) Kingsberry
+Authors: Edward and Billy 
 Sprint 1 and Sprint 2 Implementation
 """
-text_file = open('Holcomb-Project02.ged', 'r')
-text_file2 = open('export-BloodTree.ged', 'r')
-text_file3 = open('guowei_gedcom.ged', 'r')
+text_file = open('Edward-Project02.ged', 'r')
+text_file2 = open('Matt-Project02.ged', 'r')
+text_file3 = open('Guowei-Project02.ged', 'r')
 def gedcom_reader_func_matt(text_file):
   pass
 
 def gedcom_reader_func_edward(text_file):
   pass
 
-def gedcom_reader_func_guowei(text_file):
-  text_file = text_file
+def gedcom_reader_func_guowei(text_file3):
+  text_file3 = text_file
   temp = ""
   for lines in text_file:
     temp = lines.split(" ", 2)
@@ -54,7 +54,7 @@ def females_in_family(text_file):
 ##Estimate Manhours- 2
 ##Author: W_K
 ##This user story returns total deaths in the family
-def total_counts(text_file):
+def total_deaths(text_file):
   deathcount = 0
   for line in text_file:
     if line[1] == "DEAT":
@@ -64,7 +64,7 @@ def total_counts(text_file):
 ##Estimate Manhours- .25
 ##Author: ELH (copied from above)
 ##This user story returns total marriages in the family
-def total_marriages(text_file):
+def total_married(text_file):
   married = 0
   for line in text_file:
     if line[1] == "MARR":
@@ -75,12 +75,13 @@ def total_marriages(text_file):
       name = line
 ##Main Function, add functions to execute below
 if __name__ == "__main__":
-  gedcom_reader_func(text_file)
-  gedcom_reader_func_matt(text_file)
+  gedcom_reader_func_guowei(text_file3)
+  ##gedcom_reader_func_edward(text_file)
+  ##gedcom_reader_func_matt(text_file)
   ##males_in_family(text_file)
   ##females_in_family(text_file)
-  ##total_counts(text_file)
-  ##marriage_counts(text_file)
+  ##total_death(text_file)
+  ##total_married(text_file)
 
 
 ##Total number of deaths in the family

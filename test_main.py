@@ -1,29 +1,28 @@
 import unittest
-from python_gedcom_reader import gedcom_file_reader
+
 """
+Authors: Edward and Billy
 The user story:
 A complete look at a user's genealogical history.
 
 These tests are to check the function in the python_gedcom_reader file will accurately count the number of lines, content of the file,
 """
-
+from main import gedcom_reader_func_matt
+from main import gedcom_reader_func_guowei
+from main import gedcom_reader_func_edward
+from main import males_in_family
+from main import females_in_family
 
 class TestGedcomReader(unittest.TestCase):
     def test_gedcom_reader(self):
-        self.assertEqual(gedcom_file_reader(gedcom_file_reader), )
+        self.assertEqual(gedcom_reader_func_edward("Guowei-Project02.ged"), "Unknown")
 
-    def test_length(self):
-        self.assertEqual(gedcom_file_reader(gedcom_file_reader), 36)
+    def test_males_in_family(self):
+        self.assertEqual(males_in_family("Guowei-Project02.ged"), 36)
 
-    def test_output_format(self):
+    def test_females_in_family(self):
         ##Checks the first line of the gedcom file
-        self.assertEqual(get_maleS_func(gedcom.ged), "")
-
-    def test_length_of_gedcom_file(self):
-        self.assertEqual(gedcom_file_reader(gedcom_file_reader), "<--|INDI|1|")
-
-    def test_length_of_gedcom_file(self):
-        self.assertEqual(make_a_function(30), 30)
+        self.assertEqual(females_in_family("Holcomb-Project02.ged"), "Unknown")
 
 
 if __name__ == "__main__":
