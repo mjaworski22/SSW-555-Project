@@ -2,10 +2,16 @@
 Authors: Edward Holcomb and William (Billy) Kingsberry
 Sprint 1 and Sprint 2 Implementation
 """
-
-text_file2 = open('export-BloodTree.ged', 'r')
 text_file = open('Holcomb-Project02.ged', 'r')
-def gedcom_reader_func(text_file):
+text_file2 = open('export-BloodTree.ged', 'r')
+text_file3 = open('guowei_gedcom.ged', 'r')
+def gedcom_reader_func_matt(text_file):
+  pass
+
+def gedcom_reader_func_edward(text_file):
+  pass
+
+def gedcom_reader_func_guowei(text_file):
   text_file = text_file
   temp = ""
   for lines in text_file:
@@ -70,6 +76,7 @@ def total_marriages(text_file):
 ##Main Function, add functions to execute below
 if __name__ == "__main__":
   gedcom_reader_func(text_file)
+  gedcom_reader_func_matt(text_file)
   ##males_in_family(text_file)
   ##females_in_family(text_file)
   ##total_counts(text_file)
