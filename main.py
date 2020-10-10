@@ -5,6 +5,7 @@ Sprint 1 and Sprint 2 Implementation
 text_file = open('Edward-Project02.ged', 'r')
 text_file2 = open('Matt-Project02.ged', 'r')
 text_file3 = open('Guowei-Project02.ged', 'r')
+
 def gedcom_reader_func_matt(text_file):
   pass
 
