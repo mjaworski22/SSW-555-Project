@@ -23,6 +23,7 @@ def gedcom_reader_func(text_file):
   return None
 ##User Story 1
 ##Estimate Manhours- 2
+##Author:
 ##This is user story to add functionality to print all males in a genealogy (Sprint 1)
 def males_in_family(text_file):
   for line in text_file:
@@ -33,6 +34,7 @@ def males_in_family(text_file):
         print(name)
 ##User Story 2
 ##Estimate Manhours- 2
+##Author:
 ##This user story prints all the females of a family.
 def females_in_family(text_file):
   for line in text_file:
@@ -44,6 +46,7 @@ def females_in_family(text_file):
     
 ##User Story 3
 ##Estimate Manhours- 2
+##Author: W_K
 ##This user story returns total deaths in the family
 def total_counts(text_file):
   deathcount = 0
@@ -51,6 +54,16 @@ def total_counts(text_file):
     if line[1] == "DEAT":
       deathcount += 1
   print("The total number of deceased family members: " + deathcount)
+##User Story 4
+##Estimate Manhours- .25
+##Author: ELH (copied from above)
+##This user story returns total marriages in the family
+def total_marriages(text_file):
+  married = 0
+  for line in text_file:
+    if line[1] == "MARR":
+      married += 1
+  print("The total number of married family members: " + married)
 ##Will print all the children of a family tree, may need to be separate function.
   if line[1] == "CHIL":
       name = line
@@ -60,6 +73,7 @@ if __name__ == "__main__":
   ##males_in_family(text_file)
   ##females_in_family(text_file)
   ##total_counts(text_file)
+  ##marriage_counts(text_file)
 
 
 ##Total number of deaths in the family
