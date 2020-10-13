@@ -68,7 +68,7 @@ def deadPercentage():
       #if the word is in the line
       if inditag in line:
         #add one person to the counter because that line had the INDI tag
-        peoplecount = peoplecount + 1
+        peoplecount = peoplecount++
   #print(peoplecount)
     return peoplecount
 
@@ -77,7 +77,7 @@ def deadPercentage():
     for line1 in text_file_dead:
       deathtag = "DEAT"
       if deathtag in line1:
-        deadcount = deadcount + 1
+        deadcount = deadcount++
     #print(deadcount)
     return deadcount
 
