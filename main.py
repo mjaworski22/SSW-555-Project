@@ -34,55 +34,61 @@ def gedcom_reader_func_guowei(text_file3):
 ##Author:
 ##This is user story to add functionality to print all males in a genealogy (Sprint 1)
 def males_in_family(text_file):
+  text_file = text_file3
   for line in text_file:
+    print(line)
+    lines = line.split(" ", 2)
+    print(lines)
+    if line[1] == "NAME":
+      name = line[2:]
     if line[1] == "SEX":
-      name = line[2]
-    while line[2] != "M" or line[2] != "F":
       if line[2] == "M":
         print(name)
 ##User Story 2
 ##Estimate Manhours- 2
 ##Author:
 ##This user story prints all the females of a family.
-def females_in_family(text_file):
+def females_in_family(text_file3):
+  text_file = text_file3
   for line in text_file:
+    if line[1] == "NAME":
+      name = line[2:]
     if line[1] == "SEX":
-      name = line[2]
-    while line[2] != "M" or line[2] != "F":
       if line[2] == "F":
         print(name)
 ##User Story 3
 ##Estimate Manhours- 2
 ##Author: W_K
 ##This user story returns total deaths in the family
-def total_deaths(text_file):
+def total_deaths(text_file3):
+  text_file = text_file3
   deathcount = 0
   for line in text_file:
     if line[1] == "DEAT":
       deathcount += 1
-  print("The total number of deceased family members: " + deathcount)
+  print("The total number of deceased family members: " + str(deathcount))
 ##User Story 4
 ##Estimate Manhours- .25
 ##Author: ELH (copied from above)
 ##This user story returns total marriages in the family
-def total_married(text_file):
+def total_married(text_file3):
+  text_file = text_file3
   married = 0
   for line in text_file:
     if line[1] == "MARR":
       married += 1
-  print("The total number of married family members: " + married)
+  print("The total number of married family members: " + str(married))
 ##Will print all the children of a family tree, may need to be separate function.
-  if line[1] == "CHIL":
-      name = line
+
 ##Main Function, add functions to execute below
 if __name__ == "__main__":
   gedcom_reader_func_guowei(text_file3)
   ##gedcom_reader_func_edward(text_file)
   ##gedcom_reader_func_matt(text_file)
-  males_in_family(text_file)
-  females_in_family(text_file)
-  total_deaths(text_file)
-  total_married(text_file)
+  males_in_family(text_file3)
+  females_in_family(text_file3)
+  total_deaths(text_file3)
+  total_married(text_file3)
 
 ##User Story 5
 ##User Story 6
