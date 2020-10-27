@@ -28,6 +28,7 @@ def gedcom_reader_func_guowei(text_file3):
     else:
       print("<-- {}|{}|N|{}".format(temp[0], temp[1], temp[2]))
   return None
+
 ##User Story 1
 ##Estimate Manhours- 2
 ##Author:
@@ -85,7 +86,6 @@ if __name__ == "__main__":
 
 ##User Story 5
 ##User Story 6
-
 ##User Story 7
 ##Total number of deaths in the family
 ##User Story 8
