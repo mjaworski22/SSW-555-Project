@@ -23,6 +23,9 @@ class TestGedcomReader(unittest.TestCase):
     def test_females_in_family(self):
         ##Checks the first line of the gedcom file
         self.assertEqual(females_in_family("Holcomb-Project02.ged"), "Unknown")
+    
+    def test_total_married(self):
+        self.assertEqual(total_married("Guowie.ged"), 10)
 
 
 if __name__ == "__main__":

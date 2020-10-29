@@ -2,9 +2,8 @@
 Authors: Edward and Billy 
 Sprint 1 and Sprint 2 Implementation
 """
-text_file = open('Edward-Project02.ged', 'r')
-text_file2 = open('Matt-Project02.ged', 'r')
-text_file3 = open('Guowei-Project02.ged', 'r')
+
+text_file = open('Guowei-Project02.ged', 'r')
 
 def gedcom_reader_func_matt(text_file):
   pass
@@ -12,8 +11,7 @@ def gedcom_reader_func_matt(text_file):
 def gedcom_reader_func_edward(text_file):
   pass
 
-def gedcom_reader_func_guowei(text_file3):
-  text_file = text_file3
+def gedcom_reader_func_guowei(text_file):
   temp = ""
   for lines in text_file:
     temp = lines.split(" ", 2)
@@ -34,16 +32,15 @@ def gedcom_reader_func_guowei(text_file3):
 ##Author:
 ##This is user story to add functionality to print all males in a genealogy (Sprint 1)
 def males_in_family(text_file):
-  text_file = text_file3
+  print(text_file)
   for line in text_file:
     print(line)
-    lines = line.split(" ", 2)
-    print(lines)
     if line[1] == "NAME":
       name = line[2:]
     if line[1] == "SEX":
       if line[2] == "M":
         print(name)
+
 ##User Story 2
 ##Estimate Manhours- 2
 ##Author:
@@ -56,6 +53,7 @@ def females_in_family(text_file3):
     if line[1] == "SEX":
       if line[2] == "F":
         print(name)
+
 ##User Story 3
 ##Estimate Manhours- 2
 ##Author: W_K
@@ -67,6 +65,7 @@ def total_deaths(text_file3):
     if line[1] == "DEAT":
       deathcount += 1
   print("The total number of deceased family members: " + str(deathcount))
+
 ##User Story 4
 ##Estimate Manhours- .25
 ##Author: ELH (copied from above)
@@ -78,17 +77,24 @@ def total_married(text_file3):
     if line[1] == "MARR":
       married += 1
   print("The total number of married family members: " + str(married))
+
 ##Will print all the children of a family tree, may need to be separate function.
+def total_children(text_file3):
+  text_file = text_file3
+  total_children = 0
+  for line in text_file:
+    if line[1] == "CHIL":
+      total_children += 1
+  print("The total number of children in this family: " + str(total_children))
 
 ##Main Function, add functions to execute below
 if __name__ == "__main__":
-  gedcom_reader_func_guowei(text_file3)
-  ##gedcom_reader_func_edward(text_file)
-  ##gedcom_reader_func_matt(text_file)
-  males_in_family(text_file3)
-  females_in_family(text_file3)
-  total_deaths(text_file3)
-  total_married(text_file3)
+  gedcom_reader_func_guowei(text_file)
+  males_in_family(text_file)
+  females_in_family(text_file)
+  total_deaths(text_file)
+  total_married(text_file)
+  total_children(text_file)
 
 ##User Story 5
 ##User Story 6
@@ -97,6 +103,7 @@ if __name__ == "__main__":
 ##User Story 8
 ##Host database via MySQL or Sqlite
 ##One source for transforming gedcom data into sql db format
+##Django Web Server
 ##https://sarviktaat.wordpress.com/2015/10/26/sql-and-gedcom/
 ##User Story 9
 ##User Story to Reference Individuals by Family
