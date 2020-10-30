@@ -10,4 +10,4 @@ Time Esitmate: 2 weeks
 
 # Sprint 2:
 # 10/27/20
-We added death and married counter functions and worked to add web server functionality.
+We added death and married counter functions and number of children function.
