@@ -5,12 +5,6 @@ Sprint 1 and Sprint 2 Implementation
 
 text_file = open('Guowei-Project02.ged', 'r')
 
-def gedcom_reader_func_matt(text_file):
-  pass
-
-def gedcom_reader_func_edward(text_file):
-  pass
-
 def gedcom_reader_func_guowei(text_file):
   temp = ""
   for lines in text_file:
@@ -100,7 +94,6 @@ if __name__ == "__main__":
   total_married(text_file)
   total_children(text_file)
 
-##User Story 5
 ##User Story 6
 ##User Story 7
 ##Total number of deaths in the family
