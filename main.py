@@ -77,7 +77,10 @@ def total_married(text_file3):
     if line[1] == "MARR":
       married += 1
   print("The total number of married family members: " + str(married))
-
+##User Story 5
+##Estimate Manhours- .25
+##Author: ELH (copied from above)
+##This user story returns total marriages in the family
 ##Will print all the children of a family tree, may need to be separate function.
 def total_children(text_file3):
   text_file = text_file3
@@ -85,6 +88,7 @@ def total_children(text_file3):
   for line in text_file:
     if line[1] == "CHIL":
       total_children += 1
+      print(line[2])
   print("The total number of children in this family: " + str(total_children))
 
 ##Main Function, add functions to execute below
