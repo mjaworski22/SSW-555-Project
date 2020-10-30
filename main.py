@@ -77,7 +77,7 @@ def total_married(text_file3):
     if line[1] == "MARR":
       married += 1
   print("The total number of married family members: " + str(married))
-##User Story 5
+##User Story 20
 ##Estimate Manhours- .25
 ##Author: ELH (copied from above)
 ##This user story returns total marriages in the family
