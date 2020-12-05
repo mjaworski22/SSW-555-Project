@@ -1,0 +1,26 @@
+##building the database
+"""
+Author: Edward
+We need tables for children and parents,
+"""
+CREATE TABLE individual (
+    NAME Str,
+    DOB Float,
+    DOD Float/Null,
+    Maternal_Parent,
+    Paternal_Parent,
+)
+
+CREATE TABLE marriage (
+    ID Integer
+    Gender Str // M, F or U
+    Surname Str
+    Givenname Str
+)
+
+CREATE TABLE children (
+    ID Int
+    PersonID: Int
+    FamilyID: Int
+    Order Int
+)
