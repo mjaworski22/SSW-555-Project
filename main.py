@@ -1,6 +1,6 @@
 """
 Authors: Edward and Billy 
-Sprint 1 and Sprint 2 Implementation
+Sprint 1, 2, and 3 Implementation
 """
 
 text_file = open('Guowei-Project02.ged', 'r')
@@ -99,6 +99,11 @@ if __name__ == "__main__":
 ##Total number of deaths in the family
 ##User Story 8
 ##Host database via MySQL or Sqlite
+"""
+Edward Worked on this
+Created file database.db which was converted to a SQLlite DB. The original file Guowei-Project02.ged
+is still available and lives in this repo.
+"""
 ##One source for transforming gedcom data into sql db format
 ##Django Web Server
 ##https://sarviktaat.wordpress.com/2015/10/26/sql-and-gedcom/
