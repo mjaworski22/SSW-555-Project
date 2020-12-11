@@ -3,9 +3,13 @@ import sys
 import os
 import pdfkit
 import unittest
+import smtplib, ssl
+import pandas as pd
 key_words = ['INDI','NAME','SEX','BIRT','DEAT','FAMC','FAMS','FAM',
 'MARR','HUSB','WIFE','CHIL','DIV','DATE','HEAD','TRLR','NOTE']
-
+legit = ['INDI','NAME','SEX','BIRT','DEAT','FAMC','FAMS','FAM',
+'MARR','HUSB','WIFE','CHIL','DIV','DATE','HEAD','TRLR','NOTE', 'GIVN','RFN', 'CHAN','TIME','_MARNM','OCCU','SURN','FORM','CHAR','VERS','SUBM','SOUR','GEDC']
+peopleList = ['Bobby','Kevin','Lois','Gus','Kristi','Marvis','Mzincha','Geebo','Gunnar']
 
 levels = ['1','2','3']
 
@@ -14,7 +18,8 @@ text_file_dead = open('export-BloodTree.ged', 'r')
 text_file_1 = open('export-BloodTree.ged', 'r')
 text_file_married = open('export-BloodTree.ged', 'r')
 text_file_2 = open('export-BloodTree.ged', 'r')
-
+text_file_sacrifice = open('export-BloodTree.ged', 'r')
+text_file_sarch = open('export-BloodTree.ged', 'r')
 
 def printWhole(text_file):
   y = ""
@@ -43,7 +48,7 @@ def printWhole(text_file):
 
     line_number = line_number + 2
 
-    print('<-- |' + tag + '|' + numberPriority + '|' + y)
+    print('<-- |' + tag + '|' + numberPriority + '|' + y + '\n\t')
     print("-->", line)
     #print(y_count)
 
@@ -137,10 +142,48 @@ def toPDF():
   pdfkit.from_file("text.html", pdf)
 
   os.startfile(pdf)
+#======================================================================================================================
+def personDeleter(text_file_sacrifice):
+  sacrifice = input("Who do you want to delete? (Bobby, Kevin, Lois, Gus, Kristi, Marvis, Mzincha, Geebo, Gunnar) \n")
+  if sacrifice in peopleList:
+    print("Preparing to delete...")
+    y = ""
+    numberPriority = ""
+    tag = ""
+    line_number = 0
+    lines_in_gedcom_file = 158
+    y_count = 0
+    actual_y_count = 95
 
-#Doing some tests for sprint one here
-#maybe the test function requirements went right over my head
+    for line in text_file:
+      level_number = line[:1]
 
+      line = line.split()
+
+      for word in legit:
+        if word in line and sacrifice not in line: 
+          tag = word
+          y = 'Y'
+          y_count = y_count + 1
+        elif word in line and sacrifice in line:
+          print("Eliminated ", sacrifice)
+          tag = 'Deleted'
+          y = 'Y'
+          y_count = y_count + 1
+          line = 'ELIMINATED'
+
+      for level in levels:
+          if level in line:
+            numberPriority = level
+
+      line_number = line_number + 2
+
+      print('<-- |' + tag + '|' + numberPriority + '|' + y + '\n\t')
+      print("-->", line)
+  else:
+    print("This person in not in the tree...Fuck You")
+  return "Eliminated"
+#======================================================================================================================
 #Percent Dead assertTrue Test
 def sprintOneTestFunctionOne():
   correct_dead = float(4/9)
@@ -203,6 +246,47 @@ def marriedPercentage():
   
   return percent_married
 
+def personSearcher(text_file_sarch):
+  #displays the lines someone is in
+  sarch = input("Who do you want to search for? (Bobby, Kevin, Lois, Gus, Kristi, Marvis, Mzincha, Geebo, Gunnar) \n")
+  if sarch in peopleList:
+    print("Preparing to search...")
+    y = ""
+    numberPriority = ""
+    tag = ""
+    line_number = 0
+    lines_in_gedcom_file = 158
+    y_count = 0
+    actual_y_count = 95
+
+    for line in text_file:
+      level_number = line[:1]
+
+      line = line.split()
+
+      for word in legit:
+        if word in line and sarch in line: 
+          tag = word
+          y = 'Y'
+          y_count = y_count + 1
+        elif word in line and sarch not in line:
+          tag = ''
+          y = 'Y'
+          y_count = y_count + 1
+          line = ''
+
+      for level in levels:
+          if level in line:
+            numberPriority = level
+
+      line_number = line_number + 2
+
+      print('<-- |' + tag + '|' + numberPriority + '|' + y + '\n\t')
+      print("-->", line)
+  else:
+    print("This person in not in the tree...Fuck You")
+  return "Blessed"
+
 #printWhole(text_file)
 #sprintOneTestFunctionOne()
 class TestStringMethods(unittest.TestCase): 
@@ -215,6 +299,22 @@ class TestStringMethods(unittest.TestCase):
         message = "First value and second value are not equal !"
         # assertEqual() to check equality of first & second value 
         self.assertEqual(firstValue, secondValue, message) 
-  
+    def test_negative(self):
+        r = "Eliminated"
+        firstValue = r
+        secondValue = personDeleter(text_file_sacrifice)
+        # error message in case if test case got failed 
+        message = "First value and second value are not equal !"
+        # assertEqual() to check equality of first & second value 
+        self.assertEqual(firstValue, secondValue, message)
+    def test_negative(self):
+        r = "Blessed"
+        firstValue = r
+        secondValue = personSearcher(text_file_sarch)
+        # error message in case if test case got failed 
+        message = "First value and second value are not equal !"
+        # assertEqual() to check equality of first & second value 
+        self.assertEqual(firstValue, secondValue, message)
 if __name__ == '__main__': 
-    unittest.main() 
+    unittest.main()
+  #personSearcher(text_file_sarch)
